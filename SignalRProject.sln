@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRApi", "SignalRApi\SignalRApi.csproj", "{18B49658-1771-4400-8540-F4900D1CD184}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRApi", "SignalRApi\SignalRApi.csproj", "{18B49658-1771-4400-8540-F4900D1CD184}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebUI", "SignalRWebUI\SignalRWebUI.csproj", "{77F8080A-3DC9-4174-924F-A2BCB9D77714}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRWebUI", "SignalRWebUI\SignalRWebUI.csproj", "{77F8080A-3DC9-4174-924F-A2BCB9D77714}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.EntityLayer", "SignalR.EntityLayer\SignalR.EntityLayer.csproj", "{13AB510B-EC3B-4221-990F-333F25B68EC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.EntityLayer", "SignalR.EntityLayer\SignalR.EntityLayer.csproj", "{13AB510B-EC3B-4221-990F-333F25B68EC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.DataAccessLayer", "SignalR.DataAccessLayer\SignalR.DataAccessLayer.csproj", "{CB7181C7-943F-44C0-A916-A2C7CF36A585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.DataAccessLayer", "SignalR.DataAccessLayer\SignalR.DataAccessLayer.csproj", "{CB7181C7-943F-44C0-A916-A2C7CF36A585}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.BusinessLayer", "SignalR.BusinessLayer\SignalR.BusinessLayer.csproj", "{87141249-9B8A-491E-B62D-9CF3725E73DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.BusinessLayer", "SignalR.BusinessLayer\SignalR.BusinessLayer.csproj", "{87141249-9B8A-491E-B62D-9CF3725E73DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.DtoLayer", "SignalR.DtoLayer\SignalR.DtoLayer.csproj", "{27C9B7B5-795C-43C0-BAC4-052DD1135C3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{87141249-9B8A-491E-B62D-9CF3725E73DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87141249-9B8A-491E-B62D-9CF3725E73DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87141249-9B8A-491E-B62D-9CF3725E73DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C9B7B5-795C-43C0-BAC4-052DD1135C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C9B7B5-795C-43C0-BAC4-052DD1135C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C9B7B5-795C-43C0-BAC4-052DD1135C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C9B7B5-795C-43C0-BAC4-052DD1135C3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

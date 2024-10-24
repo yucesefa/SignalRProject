@@ -1,6 +1,18 @@
+using SignalR.DataAccessLayer.Concrete;
+using SignalR.BusinessLayer.Container;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddSignalR();
+
+builder.Services.AddDbContext<SignalRContext>();
+
+
+builder.Services.ContainerDependencies();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
