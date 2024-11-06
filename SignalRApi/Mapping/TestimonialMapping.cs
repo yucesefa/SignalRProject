@@ -6,7 +6,7 @@ namespace SignalRApi.Mapping
 {
     public class TestimonialMapping : Profile
     {
-        protected TestimonialMapping()
+        public TestimonialMapping()
         {
             CreateMap<Testimonial, ResultTestimonialDto>().ReverseMap();
             CreateMap<Testimonial, UpdateTestimonialDto>().ReverseMap();

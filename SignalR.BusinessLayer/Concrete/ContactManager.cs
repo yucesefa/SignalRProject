@@ -33,7 +33,7 @@ namespace SignalR.BusinessLayer.Concrete
             return _contactDal.GetListAll();
         }
 
-        public Contact TGeyById(int id)
+        public Contact TGetById(int id)
         {
             return _contactDal.GetByID(id);
         }

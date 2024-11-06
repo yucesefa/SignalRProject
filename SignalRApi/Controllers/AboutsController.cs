@@ -12,45 +12,54 @@ namespace SignalRApi.Controllers
     public class AboutsController : ControllerBase
     {
         private readonly IAboutService _aboutService;
-        private readonly IMapper _mapper;
 
-        public AboutsController(IAboutService aboutService, IMapper mapper)
+        public AboutsController(IAboutService aboutService)
         {
             _aboutService = aboutService;
-            _mapper = mapper;
         }
         [HttpGet]
         public IActionResult AboutList()
         {
             var values = _aboutService.TGetListAll();
-            return Ok(_mapper.Map<List<ResultAboutDto>>(values));
+            return Ok(values);
         }
         [HttpPost]
         public IActionResult CreateAbout(CreateAboutDto createAboutDto)
         {
-            var value = _mapper.Map<About>(createAboutDto);
-            _aboutService.TAdd(value);
+            About about = new About()
+            {
+                Title = createAboutDto.Title,
+                Description = createAboutDto.Description,
+                ImageUrl = createAboutDto.ImageUrl
+            };
+            _aboutService.TAdd(about);
             return Ok("Bilgi Eklendi");
         }
         [HttpDelete("{id}")]
         public IActionResult DeleteAbout(int id)
         {
-            var value = _aboutService.TGeyById(id);
+            var value = _aboutService.TGetById(id);
             _aboutService.TDelete(value);
             return Ok("Bilgi Silindi");
         }
         [HttpPut]
         public IActionResult UpdateAbout(UpdateAboutDto updateAboutDto)
         {
-            var value = _mapper.Map<About>(updateAboutDto);
-            _aboutService.TUpdate(value);
+            About about = new About()
+            {
+                AboutId= updateAboutDto.AboutId,
+                Title = updateAboutDto.Title,
+                Description = updateAboutDto.Description,
+                ImageUrl = updateAboutDto.ImageUrl
+            };
+            _aboutService.TUpdate(about);
             return Ok("Bilgi Güncellendi");
         }
         [HttpGet("{id}")]
         public IActionResult GetAbout(int id)
         {
-            var value = _aboutService.TGeyById(id);
-            return Ok(_mapper.Map<GetAboutDto>(value));
+            var value = _aboutService.TGetById(id);
+            return Ok(value);
         }
     }
 }

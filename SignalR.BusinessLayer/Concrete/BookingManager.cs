@@ -33,7 +33,7 @@ namespace SignalR.BusinessLayer.Concrete
             return _bookingDal.GetListAll();
         }
 
-        public Booking TGeyById(int id)
+        public Booking TGetById(int id)
         {
             return _bookingDal.GetByID(id);
         }

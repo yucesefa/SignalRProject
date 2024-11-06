@@ -33,7 +33,7 @@ namespace SignalR.BusinessLayer.Concrete
             return _socialMediaDal.GetListAll();
         }
 
-        public SocialMedia TGeyById(int id)
+        public SocialMedia TGetById(int id)
         {
             return _socialMediaDal.GetByID(id);
         }

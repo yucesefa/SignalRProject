@@ -33,7 +33,7 @@ namespace SignalR.BusinessLayer.Concrete
             return _testimonialDal.GetListAll();
         }
 
-        public Testimonial TGeyById(int id)
+        public Testimonial TGetById(int id)
         {
             return _testimonialDal.GetByID(id);
         }

@@ -33,7 +33,7 @@ namespace SignalR.BusinessLayer.Concrete
             return _featureDal.GetListAll();
         }
 
-        public Feature TGeyById(int id)
+        public Feature TGetById(int id)
         {
             return _featureDal.GetByID(id);
         }
