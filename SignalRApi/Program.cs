@@ -9,7 +9,7 @@ using SignalR.DataAccessLayer.EntityFramework;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//builder.Services.AddSignalR();
+builder.Services.AddSignalR();
 builder.Services.AddDbContext<SignalRContext>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -31,8 +31,8 @@ builder.Services.AddScoped<IDiscountDal, EfDiscountDal>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<IProductDal, EfProductDal>();
 
-builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
-builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
+//builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
+//builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
