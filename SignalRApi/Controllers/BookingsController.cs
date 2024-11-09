@@ -28,6 +28,7 @@ namespace SignalRApi.Controllers
         {
             Booking booking = new Booking()
             {
+                Description = createBookingDto.Description,
                 Mail = createBookingDto.Mail,
                 Date = createBookingDto.Date,
                 Name = createBookingDto.Name,
@@ -51,12 +52,12 @@ namespace SignalRApi.Controllers
         {
             Booking booking = new Booking()
             {
+                BookingId = updateBookingDto.BookingId,
                 Phone = updateBookingDto.Phone,
                 PersonCount = updateBookingDto.PersonCount,
                 Name = updateBookingDto.Name,
                 Mail = updateBookingDto.Mail,
-                Date = updateBookingDto.Date,
-                BookingId = updateBookingDto.BookingId
+                Date = updateBookingDto.Date
             };
             _bookingService.TUpdate(booking);
             return Ok("Rezervasyon Güncellendi");
