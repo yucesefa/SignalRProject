@@ -20,6 +20,7 @@ builder.Services.AddCors(opt =>
     });
 });
 builder.Services.AddSignalR();
+
 builder.Services.AddDbContext<SignalRContext>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -52,6 +53,13 @@ builder.Services.AddScoped<IOrderDal, EfOrderDal>();
 
 builder.Services.AddScoped<IOrderDetailService, OrderDetailManager>();
 builder.Services.AddScoped<IOrderDetailDal, EfOrderDetailDal>();
+
+builder.Services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
+builder.Services.AddScoped<IMoneyCaseDal, EfMoneyCaseDal>();
+
+builder.Services.AddScoped<IMenuTableService, MenuTableManager>();
+builder.Services.AddScoped<IMenuTableDal, EfMenuTableDal>();
+
 
 
 

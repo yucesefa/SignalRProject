@@ -146,5 +146,11 @@ namespace SignalRApi.Controllers
         {
             return Ok(_productService.TGetLast6Product());
         }
+        [HttpGet("ProductCount")]
+        public IActionResult ProductCount()
+        {
+            return Ok(_productService.TProductCount());
+        }
+
     }
 }
