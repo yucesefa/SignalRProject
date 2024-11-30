@@ -103,19 +103,10 @@ namespace SignalRApi.Hubs
             var value11 = _productService.TTotalPriceBySaladCategory();
             await Clients.All.SendAsync("ReceiveTotalPriceBySaladCategory", value11);
         }
-
-        ////Connected Client Sayıları
-        //public override async Task OnConnectedAsync()
-        //{
-        //    clientCount++;
-        //    await Clients.All.SendAsync("ReceiveClientCount", clientCount);
-        //    await base.OnConnectedAsync();
-        //}
-        //public override async Task OnDisconnectedAsync(Exception? exception)
-        //{
-        //    clientCount--;
-        //    await Clients.All.SendAsync("ReceiveClientCount", clientCount);
-        //    await base.OnDisconnectedAsync(exception);
-        //}
+        public async Task GetBookingList()
+        {
+            var values = _bookingService.TGetListAll();
+            await Clients.All.SendAsync("ReceiveBookingList", values);
+        }
     }
 }
