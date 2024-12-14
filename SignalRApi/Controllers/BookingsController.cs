@@ -12,30 +12,24 @@ namespace SignalRApi.Controllers
     public class BookingsController : ControllerBase
     {
         private readonly IBookingService _bookingService;
+        private readonly IMapper _mapper;
 
-        public BookingsController(IBookingService bookingService)
+        public BookingsController(IBookingService bookingService, IMapper mapper)
         {
             _bookingService = bookingService;
+            _mapper = mapper;
         }
         [HttpGet]
         public IActionResult BookingList()
         {
             var values = _bookingService.TGetListAll();
-            return Ok(values);
+            return Ok(_mapper.Map<List<ResultBookingDto>>(values));
         }
         [HttpPost]
         public IActionResult CreateBooking(CreateBookingDto createBookingDto)
         {
-            Booking booking = new Booking()
-            {
-                Description = createBookingDto.Description,
-                Mail = createBookingDto.Mail,
-                Date = createBookingDto.Date,
-                Name = createBookingDto.Name,
-                PersonCount = createBookingDto.PersonCount,
-                Phone = createBookingDto.Phone
-            };
-            _bookingService.TAdd(booking);
+            var value = _mapper.Map<Booking>(createBookingDto);
+            _bookingService.TAdd(value);
             return Ok("Rezervasyon Yapıldı");
         }
 
@@ -50,18 +44,8 @@ namespace SignalRApi.Controllers
         [HttpPut]
         public IActionResult UpdateBooking(UpdateBookingDto updateBookingDto)
         {
-            Booking booking = new Booking()
-            {
-                BookingId = updateBookingDto.BookingId,
-                Phone = updateBookingDto.Phone,
-                PersonCount = updateBookingDto.PersonCount,
-                Name = updateBookingDto.Name,
-                Mail = updateBookingDto.Mail,
-                Date = updateBookingDto.Date,
-                Description= updateBookingDto.Description
-                
-            };
-            _bookingService.TUpdate(booking);
+            var value = _mapper.Map<Booking>(updateBookingDto);
+            _bookingService.TUpdate(value);
             return Ok("Rezervasyon Güncellendi");
         }
 
@@ -69,7 +53,7 @@ namespace SignalRApi.Controllers
         public IActionResult GetBooking(int id)
         {
             var value = _bookingService.TGetById(id);
-            return Ok(value);
+            return Ok(_mapper.Map<GetBookingDto>(value));
         }
 		[HttpGet("BookingStatusApproved/{id}")]
 		public IActionResult BookingStatusApproved(int id)
