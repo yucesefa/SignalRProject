@@ -87,10 +87,10 @@ namespace SignalR.DataAccessLayer.EntityFramework
             return context.Products.Where(x => x.CategoryId == id).Sum(y => y.Price);
         }
 
-        public List<Product> GetLast6Product()
+        public List<Product> GetLast9Product()
         {
             var context = new SignalRContext();
-            var values = context.Products.Take(6).ToList();
+            var values = context.Products.Take(9).ToList();
             return values;
         }
     }

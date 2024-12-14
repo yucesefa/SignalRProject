@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SignalR.DtoLayer.MessageDto;
 using System.Net.Http;
 using System.Text;
@@ -15,8 +16,15 @@ namespace SignalRWebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage responseMessage = await client.GetAsync("https://localhost:7050/api/Contacts");
+            responseMessage.EnsureSuccessStatusCode();
+            string responseBody = await responseMessage.Content.ReadAsStringAsync();
+            JArray item = JArray.Parse(responseBody);
+            string value = item[0]["location"].ToString();
+            ViewBag.Location = value;
             return View();
         }
         [HttpGet]
@@ -36,7 +44,7 @@ namespace SignalRWebUI.Controllers
                 return RedirectToAction("Index", "Default");
             }
             return View();
-            return RedirectToAction("Index");
+            
         }
     }
 }

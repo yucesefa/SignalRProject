@@ -99,9 +99,9 @@ namespace SignalR.BusinessLayer.Concrete
             return _productDal.TotalPriceBySaladCategory();
         }
 
-        public List<Product> TGetLast6Product()
+        public List<Product> TGetLast9Product()
         {
-            return _productDal.GetLast6Product();
+            return _productDal.GetLast9Product();
         }
     }
 }
