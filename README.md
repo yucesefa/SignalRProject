@@ -15,7 +15,20 @@ Mail Gönderme; Kullanıcılara e-posta bildirimleri gönderilebilir.
 Kullanıcı dostu ve modern arayüz.
 # 🎯 Proje Amacı
 Bu proje, restoranlar için hızlı, pratik ve kullanıcı odaklı bir çözüm sunarak dijital sipariş ve rezervasyon süreçlerini kolaylaştırmayı hedeflemektedir. Hem müşteri deneyimini iyileştirir hem de restoranların operasyonel verimliliğini artırır.
-
+# 🔧 Kullanılan Teknolojiler
+* AspNet Core 6.0
+* Asp.Net Core Api
+* SignalR
+* Swagger
+* MailKit
+* QR Code
+* N Tier Architecture
+* Html Css Bootstrap
+* Entity Framework - Linq
+* SweetAlert
+* Fluent Validation
+* Dto
+* Mapping
 # 📸 Projeye Ait Görseller
 ![Ekran görüntüsü 2024-12-16 210432](https://github.com/user-attachments/assets/0d56b015-b065-4bc0-a068-a95a2b05b5f7)
 ![Ekran görüntüsü 2024-12-16 210502](https://github.com/user-attachments/assets/967e9f68-1794-426b-9733-a5744784f7f0)
