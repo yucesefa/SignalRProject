@@ -8,6 +8,9 @@ using SignalR.DataAccessLayer.EntityFramework;
 using SignalRApi.Hubs;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using FluentValidation;
+using SignalR.BusinessLayer.ValidationRules.BookingValidations;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,6 +78,11 @@ builder.Services.AddScoped<IMessageService, MessageManager>();
 builder.Services.AddScoped<IMessageDal, EfMessageDal>();
 
 
+builder.Services.AddFluentValidationAutoValidation(config =>
+{
+    config.DisableDataAnnotationsValidation = true;
+});
+builder.Services.AddValidatorsFromAssemblyContaining<CreateBookingValidation>();
 
 
 

@@ -27,7 +27,7 @@ namespace SignalRWebUI.Controllers
             var responseMessage = await client.PostAsync("https://localhost:7050/api/Bookings", content);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index","Default");
+                return RedirectToAction("Index", "Default");
             }
             return View();
 
