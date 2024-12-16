@@ -50,7 +50,7 @@ namespace SignalRApi.Controllers
             _basketService.TAdd(new Basket()
             {
                 ProductID = createBasketDto.ProductId,
-                MenuTableID = 4,
+                MenuTableID=createBasketDto.MenuTableId,
                 Count = 1,
                 Price = context.Products.Where(x => x.ProductId == createBasketDto.ProductId).Select(y => y.Price).FirstOrDefault(),
                 TotalPrice = 0,

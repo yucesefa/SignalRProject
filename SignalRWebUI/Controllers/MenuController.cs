@@ -15,8 +15,10 @@ namespace SignalRWebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
+            ViewBag.v = id; // Burada MenuTableId değerini ayarlıyoruz
+                            // TempData["x"] = id; // Eğer bunu kullanıyorsanız
 
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7050/api/Products/ProductListWithCategory");
@@ -25,19 +27,35 @@ namespace SignalRWebUI.Controllers
             return View(values);
         }
         [HttpPost]
-        public async Task<IActionResult> AddBasket(int id)
+        public async Task<IActionResult> AddBasket(int id, int menuTableId)
         {
-            CreateBasketDto basketDto = new CreateBasketDto();
-            basketDto.ProductId = id;
+            if (menuTableId == 0)
+            {
+                return BadRequest("MenuTableId 0 geliyor.");
+            }
+
+            CreateBasketDto createBasketDto = new CreateBasketDto
+            {
+                ProductId = id,
+                MenuTableId = menuTableId // Gelen MenuTableID burada kullanılıyor
+            };
+
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(basketDto);
-            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7050/api/Baskets", content);
+            var jsonData = JsonConvert.SerializeObject(createBasketDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7050/api/Baskets", stringContent);
+
+            var client2 = _httpClientFactory.CreateClient();
+            //var jsonData2 = JsonConvert.SerializeObject(updateCategoryDto);
+            //StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            await client2.GetAsync("https://localhost:7050/api/MenuTables/ChangeMenuTableStatusToTrue?id=" + menuTableId);
+
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
-            return Json(basketDto);
+
+            return Json(createBasketDto);
         }
     }
 }
